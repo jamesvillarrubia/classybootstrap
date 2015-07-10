@@ -1,0 +1,142 @@
+  //@import (reference) "less/variables.less";
+
+  @blue: 		#00aef3;
+  @navy: 		#0f2446;
+  @red: 		#e31818;
+  @gray: 		#f6f6f6;
+  @darkgray:	#CCCCCC;
+  @white: 		#ffffff;
+  @black: 		#000000;
+  @oppgray: 	#262626;
+  @cnames: 	"blue",		"navy",		"red",		"gray",		"darkgray",		"white",	"black",	"oppgray";
+  @cvals: 	"@{blue}",	"@{navy}",	"@{red}",	"@{gray}",	"@{darkgray}",	"@{white}",	"@{black}",	"@{oppgray}";
+
+  //These are the custom sizes
+  @size-list: 	"1",		"2",		"3",		"4",		"5",		"6",		"7";
+  @bd-list: 	1,			2,			3,			4,			5,			10,			15;
+
+
+  // These are the minimums and maximums on screen widths.
+  // The 0 and 7000 are defaults in order to provide outer bounds in the loop.
+  @min-list: 		0,				"@{screen-sm}",		"@{screen-md}",		"@{screen-lg}";
+  @max-list: 		"@{screen-sm}",	"@{screen-md}",		"@{screen-lg}",		"7000px";
+
+  //These are the sizes that can be applied to class to match bootstrap widths
+  @width-list: 		"xs",			"sm",				"md",			"lg";
+
+  //These are the directions lists, full and abbreviated
+  @dir-list:		"left",			"right",			"top",			"bottom";
+  @dr-list:			"l",			"r",				"t",			"b";
+
+  //Alignment options
+  @pos-list:		"left",			"center",			"right",		"justify";
+
+
+
+
+  /***************************************
+   * Color Builder
+   **************************************/
+   //	.tx-blue 		- make text blue
+   //	.tx-hv-blue		- make text blue on hover
+   //	.tx-vs-blue		- make text blue after visit
+   //	.bg-blue		- make background blue
+   //	.bg-hv-blue		- make background blue on hover
+   //	.bd-blue		- make border blue
+   //	.bd-hv-blue		- make border blue on hover
+	  .c(@c: length(@cnames)) when (@c > 0) {
+		  @name:  e(extract(@cnames, @c));
+		  @value: e(extract(@cvals, @c));
+		  .tx-@{name},
+		  .tx-hv-@{name}:hover,
+		  .tx-hv-@{name}:hover:visited,
+		  .tx-vs-@{name}{
+			  color: @value;
+		  }
+		  .bg-@{name},
+		  .bg-hv-@{name}:hover{
+			  background-color: @value
+		  }
+		  .bd-@{name},
+		  .bd-hv-@{name}:hover{
+			  border-color: @value
+		  }
+
+		  .c((@c - 1));
+	  } .c;
+
+
+
+
+  /***************************************
+   * Border Builder
+   **************************************/
+   // .bd-1		- make the border width the xxs value from the bd-list
+	  .t(@t: length(@size-list)) when (@t > 0) {
+		  @name:  e(extract(@size-list, @t));
+		  @value: e(extract(@bd-list, @t));
+		  .bd-@{name}{
+			  border-width: ~'@{value}px';
+			  border-style: solid;
+		  }
+		  .t((@t - 1));
+	  } .t;
+
+   // .bd-0		- zero out the border width from above to allow overrides below;
+	  .bd-0{
+		  border-width: 0px;
+	  }
+
+
+   // .bd-1-right	- make the right border xxs;  can override the zero bd and the full border settings;
+	  .y(@y: length(@size-list)) when (@y > 0) {
+		  @name:  e(extract(@size-list, @y));
+		  @value: e(extract(@bd-list, @y));
+		  .bd-right-@{name}{ border-right-width:~'@{value}px';}
+		  .bd-left-@{name}{ border-left-width:~'@{value}px';}
+		  .bd-top-@{name}{ border-top-width:~'@{value}px';}
+		  .bd-bottom-@{name}{ border-bottom-width:~'@{value}px';}
+		  .y((@y - 1));
+	  } .y;
+
+
+
+
+
+
+  /***************************************
+   * Allignment Builder
+   **************************************/
+   // .tx-center-not-xs	- make the text center on everything except xs width
+   // .tx-right-xs		- make the text right on xs width
+	  .v(@v: 1) when (@v <= length(@width-list)) {
+		  @pos: e(extract(@pos-list, @v));
+		  .u(@u: 1) when (@u <= length(@width-list)) {
+			  @width:  e(extract(@width-list, @u));
+			 .tx-@{pos}-not-@{width}
+				  {text-align: @pos}
+			  .u((@u + 1));
+		  } .u;
+		  .v((@v + 1));
+	  } .v;
+	  .x(@x: 1) when (@x <= length(@width-list)) {
+		  @width: e(extract(@width-list, @x));
+		  @min: e(extract(@min-list, @x));
+		  @max: e(extract(@max-list, @x));
+		  @media (min-width: ~'@{min}') and (max-width: ~'@{max}'){
+			  .z(@z: length(@pos-list)) when (@z > 0) {
+					  @pos:  e(extract(@pos-list, @z));
+					  .tx-@{pos}-not-@{width}
+						  {text-align: inherit;}
+				  .z((@z - 1));
+			  } .z;
+
+			  .w(@w: length(@pos-list)) when (@w > 0) {
+				  @pos:  e(extract(@pos-list, @w));
+				  .tx-@{pos}-@{width}
+					  {text-align: @pos;}
+				  .w((@w - 1));
+			  } .w;
+		  }
+		  .x((@x + 1));
+	  } .x;

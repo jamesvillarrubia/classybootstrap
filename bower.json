@@ -1,0 +1,14 @@
+{
+    "name": "ClassyBootstrap",
+    "version": "0.0.1",
+    "main": "dist/classy.less",
+    "ignore": [
+        ".gitignore",
+        "bower.json",
+        "README.md"
+    ],
+    "dependencies": {
+    },
+    "devDependencies": {
+    }
+}

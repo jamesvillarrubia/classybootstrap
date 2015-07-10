@@ -1,14 +1,17 @@
 {
-    "name": "ClassyBootstrap",
+    "name": "classy-bootstrap",
     "version": "0.0.1",
-    "main": "classy.less",
+    "description": "Additional classes for you Bootstrap Less",
+    "main": "less/classy.less",
     "ignore": [
-        ".gitignore",
-        "bower.json",
         "README.md"
     ],
     "dependencies": {
     },
     "devDependencies": {
-    }
+    },
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/jamesvillarrubia/classybootstrap.git"
+    }   
 }

@@ -1,6 +1,6 @@
 {
     "name": "classy-bootstrap",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Additional classes for you Bootstrap Less",
     "main": "less/classy.less",
     "ignore": [

@@ -8,17 +8,18 @@
 		<!--[if lt IE 9]><script type='text/javascript' src='assets/javascript/html5.js'></script><![endif]-->
     <script type='text/javascript' src='assets/js/jquery-2.1.0.min.js'></script>
     <script type='text/javascript' src='assets/js/bootstrap.js'></script>
-    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sons-of-obsidian"></script>
+    <script type='text/javascript' src='assets/js/lang-css.js'></script>    
     <script type='text/javascript' src='assets/js/app.js'></script>    
 
-
+    <link href='http://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' type='text/css' href='assets/css/bootstrap.css' />
 		<link rel='stylesheet' type='text/css' href='assets/css/style.css' />
     <link rel='stylesheet' type='text/css' href='assets/css/classy.css' />
 	</head>
   <body>     
   <!-- Top Navbar -->
-  <div class="navbar navbar-inverse">
+  <div class="navbar navbar-transparent" style="display: none;">
       <div class="container">
           <div class="navbar-header">
               <button type="button" class="navbar-toggle"
@@ -41,12 +42,25 @@
           </div>
       </div>
   </div>
+  <header>
+    <h1>Classy Bootstrap</h1>
+    <h3>Extend Your Bootstrap Classes in an Elegant Way</h3>
+    <div class="colorizer"></div>
+  </header>
+  <div class="container">
   <div class="row">
       <!--Nav Bar -->
-      <nav class="col-xs-3 bs-docs-sidebar">
+      <nav class="col-xs-3 col-md-push-9 bs-docs-sidebar">
           <ul id="sidebar" class="nav nav-stacked">
               <li>
-                  <a href="#GroupA">Spacing</a>
+                  <a href="#Installation">Installation</a>
+                  <ul class="nav nav-stacked">
+                      <li><a href="#Installation-LESS">LESS</a></li>
+                      <li><a href="#Installation-SASS">SASS</a></li>
+                  </ul>
+              </li>
+              <li>
+                  <a href="#Spacing">Spacing</a>
                   <ul class="nav nav-stacked">
                       <li><a href="#Spacing-Options">Options</a></li>
                       <li><a href="#Spacing-Padding">Padding</a></li>
@@ -69,12 +83,16 @@
                   <a href="#Borders">Borders</a>
                   <ul class="nav nav-stacked">
                       <li><a href="#Borders-Sizing">Sizing</a></li>
-                      <li><a href="#Borders-Individual">Individual</a></li>
                       <li><a href="#Borders-Removing">Removing</a></li>
+                      <li><a href="#Borders-Individual">Individual</a></li>
                   </ul>
               </li>
               <li>
                   <a href="#Alignment">Alignment</a>
+                  <ul class="nav nav-stacked">
+                      <li><a href="#Alignment-Basic">Basics</a></li>
+                      <li><a href="#Alignment-Size">By Screen Size</a></li>
+                  </ul>
               </li>
               <li>
                   <a href="#Fonts">Fonts</a>
@@ -89,21 +107,71 @@
           </ul>
       </nav>
       <!--Main Content -->
-      <div class="col-xs-9">
+      <div class="col-xs-9 col-md-pull-3 ">
+          <section id="Introduction" class="group">
+              <h3>Introduction</h3>
+              <div id="why" class="subgroup">
+                <h4>Why?</h4>
+                <p>Many projects have tailored sections or elements that can be identified through HTML ID attributes or through wrapper classes.  You might have a chunk of css that only applies to the immediate child divs inside <code>#Jumbotron-Front</code> or maybe you have a specific type of button that is called out with <code>.red-branded-logo-button</code>. Your CSS or LESS or SASS is then appropriately chunked out to match those specific elements.</p>
+                <p>At some point, however, on larger sites that persist over many years and have many different subsections and chunks, these "grouped" css divisions can be quite annoying.  There's repetition, but you don't know where to even begin to abstract it.  And every new addition probably had slightly different css applied - maybe 5px padding here but 7px padding on almost the same element on a different template chunk or section. You can imagine a scenario where every different type of headline banner on your site has its own template AND its own set of css.  By breaking your components into template structures and dependent css structures, you now have to manage two related assets that are likely updated, processed, and deployed differently.</p>
+                <p>What's worse is when you update your template, you have to make sure you css is updated simultaneously - perhaps with some complex versioning tied to your deployment.  Heaven forbid Cloudfront cache the assets at different times and now your beautiful banner looks ugly for the first 30min it's live.</p>
+                <p><em><strong>Classy Bootstrap</strong></em> was developed because of that very issue. A large site was being developed with 10 unique content types and 50+ content developers and copy-editors across the organization.  Some had significant HTML experience while others had none.  Some needed to be able to edit HTML and others weren't to be trusted with that capability.  In order to allow chunks of html to be added or edited through the admin interface (ExpressionEngine), we needed to either allow scoped/inline css that would likely confuse or break other parts of the site or we could try to remove most of the need for custom css all together.  Thus Classy Bootstrap was born.  It is a way to write well-branded chunks of html templates without having to update or recompile your core css.  Plus, it was simple enough that basic HTML knowledge could become enough to keep your site's bits and pieces all "in brand" and keep your designers from calling you at 2am.</p>
+                <p>Of course, this level of CSS abstraction may be a bit insane for some projects, but we've found that once you start using Classy Bootstrap and you have to edit/deploy your css less and less, you start to see its appeal.</p>
+                <p>Check it out and let us know what you think on Twitter at <a href="http://twitter.com/@classybootstap">@classybootstrap.</a></p>
+              </div>
+          </section>
+          <section id="Installation" class="group">
+              <h3>Installation</h3>
+              <div id="Installation-LESS" class="subgroup">
+                <h4>LESS</h4>
+                <p>Download the <code>classy.less</code> file to your computer.  Wherever you are pulling your <code>bootstrap.less</code> file, typically in an <code>app.less</code>, place <code class="prettyprint lang-css">@import "classy"</code> beneath the <code class="prettyprint lang-css">@import "bootstrap"</code>.
+                <p>For example, the less file I typically compile looks like this:</p>
+                <pre class="prettyprint lang-css pd-3">
+@import "font-awesome";
+@import "bootstrap";
+@import "bootstrap-select";
+@import "classy";
+
+/*
+ *  Extra less classes and coding
+ */</pre>
+                <p> Though not recommended, you can also edit the <code>bootstrap.less</code> file.  Make sure to place <code>classy.less</code> after the other imports.</p>
+                <pre class="prettyprint lang-css pd-3">
+/* ... rest of bootstrap.less ...
+ * Components w/ JavaScript
+ */
+@import "modals.less";
+@import "tooltip.less";
+@import "popovers.less";
+@import "carousel.less";
+
+/* Utility classes */
+@import "utilities.less";
+@import "responsive-utilities.less";
+
+@import "classy.less";</pre>
+              </div>
+              <div id="Installation-SASS" class="subgroup">
+                <h4>SASS</h4>
+                <p><em>Coming soon...</em></p>
+              </div>
+          </section>
           <section id="Spacing" class="group">
               <h3>Spacing</h3>
               <div id="Spacing-Options" class="subgroup">
                   <h4>Options</h4>
-                  <p>Classy Bootstrap offers several variations to its padding and margins.  To enable these, you must decide what to call your size options.  Originally, we used the same types as Bootstrap, but this became confusing as the padding was "xs", but with bootstrap made it seem like it only <em>applied</em> when viewed with "xs" screen size.  By default our sizes are 1-7.  We avoid 0 becuase 0 is reserved for removing features in other extended class sets.</p>
+                  <p>Classy Bootstrap offers several variations to its padding and margin classes.  To enable any of these, however, you must first decide how to reference your size classifications.  Originally, we used the same abbreviations as Bootstrap, but this became confusing - padding was meant to BE extra-small, not just only apply to "xs" screens. 
+                  <p>To avoid confustion, we use numeric size names, much like <code>h1</code> or <code>h4</code>.  By default our sizes are 1-7.  We avoid 0 because it is reserved for removing features in other extended class sets.</p>
                   <p>In your <code>app.less</code> file, after inserting <code>@import "classy"</code>, you can overide the default size names with the less array:
                   <pre class="prettyprint lang-css pd-3">@size-list:   "1",    "2",    "3",    "4",    "5",    "6",    "7";</pre>
-                  <p>Then to set the various pixel size of the margins and padding, drop the following arrays in as well, with your chosen sizes</p>
+                  <p>Then set the various pixel size of the margins and padding by dropping the following arrays in to your <code>app.less</code> with your chosen sizes:</p>
                   <pre class="prettyprint lang-css pd-3">@pd-list:      3,          5,          7,          10,         15,         30,         60;<br>@mg-list:      3,          5,          7,          10,         15,         30,         60;</pre>
+                  <p><em><strong>IMPORTANT:</strong></em> Make sure that your size list and mg/pd lists have the exact same number of elements!</p>
               </div>
               <div id="Spacing-Padding" class="subgroup">
                   <h4>Padding</h4>
-                  <p>To use padding, follow the format of <code>pd-{size-name}</code> with the size-name that you decided in your size-list;
-                  By default the following are enabled.</p>
+                  <p>To use padding, follow the format of <code>pd-{size-name}</code> with the size-name that you decided in your size-list.</p>
+                  <p>By default the following are enabled:</p>
                   <div class="demobox pd-1">.pd-1</div>
                   <div class="demobox pd-2">.pd-2</div>
                   <div class="demobox pd-3">.pd-3</div>
@@ -133,7 +201,7 @@
               </div>
               <div id="Spacing-Gutter" class="subgroup">
                   <h4>Gutters</h4>
-                  <p>Because sometimes you want to remove gutters, you can apply the <code>.no-gutters</code> class to your row element.  This will provide the following css: 
+                  <p>To remove gutters, you can apply the <code>.no-gutters</code> class to your row element.  This will provide the following css: 
 <pre class="prettyprint lang-css pd-3">.row.no-gutters {
   margin-right: 0;
   margin-left: 0;
@@ -154,40 +222,69 @@
 
               <div id="Colors-Options" class="subgroup">
                   <h4>Options</h4>              
-                  <p>Every project has its own color scheme.  In order to maximize efficiency, we can build a list of those default colors and then generate classes based on them, much like Bootstrap does with its helper classes (primary, success, warning, etc.).  In your app.less file, underneath <code>@import "classy"</code>, you can add colors in the following manner.  The defaults are shown below.</p>
+                  <p>Every project has its own color scheme.  In order to make use of these color more efficient without tons of duplicate CSS or incorrect RGB values, we can build a list of those default colors and then generate classes based on them, much like Bootstrap does with its helper classes (primary, success, warning, etc.).  In your <code>app.less</code> file, underneath <code>@import "classy"</code>, you can add colors in the following manner.  The defaults are shown below.</p>
 <pre class="prettyprint lang-css pd-3">
-@blue:    #00aef3;
-@navy:    #0f2446;
-@red:     #e31818;
-@gray:    #f6f6f6;
-@darkgray:  #CCCCCC;
-@white:   #ffffff;
-@black:   #000000;
-@accent:   #262626;
+@blue: #00aef3;
+@navy: #0f2446;
+@red: #e31818;
+@gray: #f6f6f6;
+@darkgray: #CCCCCC;
+@white: #ffffff;
+@black: #000000;
+@accent: #262626;
 </pre>
                   <p> This creates color variables that you can use anywhere you'd like in your less files.</p>
-                  <p> To extend the classes, however, you also need to create two Less arrays, like so:</p>
+                  <p> You might also consider prefixing these variables to avoid confusion and make the reference classy bootstrap specific.</p>
+                  <pre class="prettyprint lang-css pd-3">
+@cb_blue: #00aef3;
+@cb_navy: #0f2446;
+@cb_red: #e31818;</pre>
+                  <p> To extend the classes, however, you also need to create two more LESS arrays, like so:</p>
 <pre class="prettyprint lang-css pd-3">
 @cnames:  "blue",   "navy",   "red",    "gray",   "darkgray",   "white",  "black",  "accent";
 @cvals:   "@{blue}",  "@{navy}",  "@{red}", "@{gray}",  "@{darkgray}",  "@{white}", "@{black}", "@{accent}";
 </pre>
-                  <p> The <code>cnames</code> array is the name array that will be inserted into the class. The <code>cvals</code> array simply calls the variable you made above and attaches them to the respective name</p>
+                  <p> The <code>cnames</code> array is the array of names will be inserted into the class names along with the appropriate prefixes. The <code>cvals</code> array simply calls the variable you made above and attaches them to the respective class name</p>
               </div>
               <div id="Colors-Text" class="subgroup">
                   <h4>Text</h4>
-                  <p></p>
+                  <p>To set a text color for an element, add a class in the format <code>tx-blue</code>.</p>
+                  <p>For example</p>
+                  <div class="demobox pd-2">
+                  <div class="tx-blue">.tx-blue</div>
+                  <div class="tx-navy">.tx-navy</div>
+                  <div class="tx-red">.tx-red</div>
+                  <div class="tx-darkgray">.tx-darkgray</div>
+                  <div class="tx-black">.tx-black</div>
+                  </div>
               </div>
               <div id="Colors-Backgrounds" class="subgroup">
                   <h4>Backgrounds</h4>
+                  <p>Backgrounds are just like text, except with a <code>bg</code> prefix.
+                  <div class="bg-blue tx-white demobox bd-n pd-2">.bg-blue</div>
+                  <div class="bg-navy tx-white demobox bd-n pd-2">.bg-navy</div>
+                  <div class="bg-red tx-white demobox bd-n pd-2">.bg-red</div>
+                  <div class="bg-darkgray tx-white demobox bd-n pd-2">.bg-darkgray</div>
+                  <div class="bg-black tx-white demobox bd-n pd-2">.bg-black</div>
               </div>
               <div id="Colors-Borders" class="subgroup">
                   <h4>Borders</h4>
+                  <p>Border colors are just like text and backgrounds, except with a <code>bd</code> prefix.
+                  <div class="bd-blue  demobox bd-2 pd-2">.bg-blue</div>
+                  <div class="bd-navy demobox bd-2 pd-2">.bg-navy</div>
+                  <div class="bd-red demobox bd-2 pd-2">.bg-red</div>
+                  <div class="bd-darkgray  demobox bd-2 pd-2">.bg-darkgray</div>
+                  <div class="bd-black demobox bd-2 pd-2">.bg-black</div>
               </div>
               <div id="Colors-Hovering" class="subgroup">
                   <h4>Hovering</h4>
+                  <p>To alter the element's coloring on hover, you can add the <code>-hv-</code> to any of the text, background, or border color classes.</p>
+                  <div class="bg-blue tx-white bd-red AND bg-hv-red tx-hv-black bd-hv-black  demobox bd-2 pd-2">.bg-blue .tx-white .bd-red AND .bg-hv-red .tx-hv-black .bd-hv-black</div>
               </div>
               <div id="Colors-Visited" class="subgroup">
                   <h4>Visited</h4>
+                  <p>To alter a link's visited color, just add <code>-vs-</code> to its respective class. For a black link that is blue when its been visited, add the classes <code>tx-black tx-vs-blue</code>.</p>
+                  <p><a href="" class="tx-red tx-hv-blue tx-vs-black">Example link</a></p>
               </div>              
           </section>
 
@@ -196,16 +293,72 @@
               <h3>Borders</h3>
               <div id="Borders-Sizing" class="subgroup">
                   <h4>Sizing</h4>
-              </div>
-              <div id="Borders-Individual" class="subgroup">
-                  <h4>Individual</h4>
+                  <p>Border sizing works like padding or margins.  There is a size-name attached to each border size.  To alter the default border pixel widths, add a <code>@bd-list</code> array and change the values.  The default values are shown below:</p>
+                  <pre class="prettyprint lang-css pd-3">
+@bd-list:     1,      2,      3,      4,      5,      10,     15;</pre>
+                  <p>To give an element a border, simply use <code>bd-{size-name}</code>Here are some examples:</p>
+                  <div class="bd-blue bd-1 demobox pd-2 mg-1">.bd-1</div>
+                  <div class="bd-blue bd-2 demobox pd-2 mg-1">.bd-2</div>
+                  <div class="bd-blue bd-5 demobox  pd-2 mg-1">.bd-5</div>
               </div>
               <div id="Borders-Removing" class="subgroup">
                   <h4>Removing</h4>
+                  <p>To remove a border, add the <code>bd-n</code> or <code>bd-0</code> class.</p>
+              </div>
+              <div id="Borders-Individual" class="subgroup">
+                  <h4>Individual</h4>
+                  <p>To add a border to the left, right, bottom, top, vertical, or horizontal apply the same prefix codes as with padding and margins. For exampe: </p>
+                  <div class="bd-blue bd-l-3 pd-2 mg-1">.bd-l-3 .bd-blue</div>
+                  <div class="bd-blue bd-l-7 pd-2 mg-1">.bd-l-7 .bd-blue</div>
+                  <p>Notice how the <code>bd-blue</code> automatically applies a 3px solid style.</p> To remove the default style, you need to zero out the generic border with a <code>bd-n</code>.  Because the <code>bd-n</code> is placed after the coloring but before the left, right, top, bottom classes, you can override them to add a border on one side only.</p>
+                  <div class="bd-blue bd-l-3 bd-n pd-2 mg-1">.bd-l-3 .bd-n .bd-blue</div>
+                  <div class="bd-blue bd-l-7 bd-n pd-2 mg-1">.bd-l-7 .bd-n .bd-blue</div>
               </div>
           </section>   
-
-   
+          <section id="Alignment" class="group">
+              <h3>Alignment</h3>
+              <div id="Alignment-Basic" class="subgroup">
+                <h4>Basic</h4>
+                <p>Bootstrap comes with some basic alignment capabilities.  From the documentation they look like this:</p>
+                <div class="demobox">
+                <p class="text-left">Left aligned text.</p>
+                <p class="text-center">Center aligned text.</p>
+                <p class="text-right">Right aligned text.</p>
+                <p class="text-justify">Justified text.</p>
+                <p class="text-nowrap">No wrap text.</p>
+                </div>
+                <p> With this code:</p>
+                <xmp class="prettyprint lang-html pd-3"><p class="text-left">Left aligned text.</p>
+<p class="text-center">Center aligned text.</p>
+<p class="text-right">Right aligned text.</p>
+<p class="text-justify">Justified text.</p>
+<p class="text-nowrap">No wrap text.</p></xmp>
+                <p>Classy Bootstrap adds some additional functionality and tweaks the abbreviations for the standard bootstrap classes.</p>
+                <p>To implement Classy alignemnt, simply use <code>tx-c</code> or <code>tx-center</code> for center alignment.  The other options are <code>tx-l</code><code>tx-r</code><code>tx-j</code> and the full names as well (<code>tx-left</code>).
+              </div>
+              <div id="Alignment-Size" class="subgroup">
+                <h4>By Screen Size</h4>
+                <p>But Classy Bootstrap does more than shorten class names.  You can also change the alignment by screen size.</p>
+                <div class="demobox">
+                <p class="tx-left-md tx-right-lg">Left on Medium and below.  Right on Large screens.</p>
+                </div>
+                <xmp class="prettyprint lang-html pd-3"><p class="tx-left-md tx-right-lg">Left on Medium and below.  Right on Large screens.</p></xmp>
+               <p>As the example shows, you just attach <code>-xs</code>, <code>-sm</code>, <code>-md</code>, <code>-lg</code></p>
+               <p>You can also NEGATE an alignment with the following suffixes: <code>-not-xs</code>, <code>-not-sm</code>, <code>-not-md</code>, <code>-not-lg</code>.  These classes will turn alignment back to "inherit" on those particular sizes but maintain the state alignment for all others</p>
+                <div class="demobox">
+                  <p class="tx-right-not-md">Right on all but medium.</p>
+                  <div class="tx-right-xs">
+                    <p class="tx-center-not-md">Right inherited.  Text center, but not on medium.</p>                
+                  </div>
+                </div>
+<xmp class="prettyprint lang-html pd-3"><p class="tx-right-not-md">Right on all but medium.</p>
+<div class="tx-right-xs">
+  <p class="tx-center-not-md">Right inherited.  Text center, but not on medium.</p>                
+</div>
+</xmp>
+              </div>
+          </section>
+   </div>
       </div>
   </div>
 </body>

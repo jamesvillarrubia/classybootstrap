@@ -6,7 +6,7 @@ $(document).ready(function(){
 	});
 	$("#sidebar").affix({
 	    offset: {
-	      top: 60
+	      top: 500
 	    }
 	});
 

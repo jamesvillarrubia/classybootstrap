@@ -1,3 +1,4 @@
+
 /***************************************
    * Color Builder
    **************************************/
@@ -14,6 +15,7 @@
 .bd-oppgray,
 .bd-hv-oppgray:hover {
   border-color: #262626;
+  border-style: solid;
 }
 .tx-black,
 .tx-hv-black:hover,
@@ -28,6 +30,7 @@
 .bd-black,
 .bd-hv-black:hover {
   border-color: #000000;
+  border-style: solid;
 }
 .tx-white,
 .tx-hv-white:hover,
@@ -42,6 +45,7 @@
 .bd-white,
 .bd-hv-white:hover {
   border-color: #ffffff;
+  border-style: solid;
 }
 .tx-darkgray,
 .tx-hv-darkgray:hover,
@@ -56,6 +60,7 @@
 .bd-darkgray,
 .bd-hv-darkgray:hover {
   border-color: #cccccc;
+  border-style: solid;
 }
 .tx-gray,
 .tx-hv-gray:hover,
@@ -70,6 +75,7 @@
 .bd-gray,
 .bd-hv-gray:hover {
   border-color: #f6f6f6;
+  border-style: solid;
 }
 .tx-red,
 .tx-hv-red:hover,
@@ -84,6 +90,7 @@
 .bd-red,
 .bd-hv-red:hover {
   border-color: #e31818;
+  border-style: solid;
 }
 .tx-navy,
 .tx-hv-navy:hover,
@@ -98,6 +105,7 @@
 .bd-navy,
 .bd-hv-navy:hover {
   border-color: #0f2446;
+  border-style: solid;
 }
 .tx-blue,
 .tx-hv-blue:hover,
@@ -112,124 +120,175 @@
 .bd-blue,
 .bd-hv-blue:hover {
   border-color: #00aef3;
+  border-style: solid;
 }
 /***************************************
    * Border Builder
    **************************************/
 .bd-7 {
   border-width: 15px;
-  border-style: solid;
 }
 .bd-6 {
   border-width: 10px;
-  border-style: solid;
 }
 .bd-5 {
   border-width: 5px;
-  border-style: solid;
 }
 .bd-4 {
   border-width: 4px;
-  border-style: solid;
 }
 .bd-3 {
   border-width: 3px;
-  border-style: solid;
 }
 .bd-2 {
   border-width: 2px;
-  border-style: solid;
 }
 .bd-1 {
   border-width: 1px;
-  border-style: solid;
 }
-.bd-0 {
+.bd-0,
+.bd-n {
   border-width: 0px;
 }
-.bd-right-7 {
+.bd-r-7 {
   border-right-width: 15px;
 }
-.bd-left-7 {
+.bd-l-7 {
   border-left-width: 15px;
 }
-.bd-top-7 {
+.bd-t-7 {
   border-top-width: 15px;
 }
-.bd-bottom-7 {
+.bd-b-7 {
   border-bottom-width: 15px;
 }
-.bd-right-6 {
+.bd-v-7 {
+  border-top-width: 15px;
+  border-bottom-width: 15px;
+}
+.bd-h-7 {
+  border-left-width: 15px;
+  border-right-width: 15px;
+}
+.bd-r-6 {
   border-right-width: 10px;
 }
-.bd-left-6 {
+.bd-l-6 {
   border-left-width: 10px;
 }
-.bd-top-6 {
+.bd-t-6 {
   border-top-width: 10px;
 }
-.bd-bottom-6 {
+.bd-b-6 {
   border-bottom-width: 10px;
 }
-.bd-right-5 {
+.bd-v-6 {
+  border-top-width: 10px;
+  border-bottom-width: 10px;
+}
+.bd-h-6 {
+  border-left-width: 10px;
+  border-right-width: 10px;
+}
+.bd-r-5 {
   border-right-width: 5px;
 }
-.bd-left-5 {
+.bd-l-5 {
   border-left-width: 5px;
 }
-.bd-top-5 {
+.bd-t-5 {
   border-top-width: 5px;
 }
-.bd-bottom-5 {
+.bd-b-5 {
   border-bottom-width: 5px;
 }
-.bd-right-4 {
+.bd-v-5 {
+  border-top-width: 5px;
+  border-bottom-width: 5px;
+}
+.bd-h-5 {
+  border-left-width: 5px;
+  border-right-width: 5px;
+}
+.bd-r-4 {
   border-right-width: 4px;
 }
-.bd-left-4 {
+.bd-l-4 {
   border-left-width: 4px;
 }
-.bd-top-4 {
+.bd-t-4 {
   border-top-width: 4px;
 }
-.bd-bottom-4 {
+.bd-b-4 {
   border-bottom-width: 4px;
 }
-.bd-right-3 {
+.bd-v-4 {
+  border-top-width: 4px;
+  border-bottom-width: 4px;
+}
+.bd-h-4 {
+  border-left-width: 4px;
+  border-right-width: 4px;
+}
+.bd-r-3 {
   border-right-width: 3px;
 }
-.bd-left-3 {
+.bd-l-3 {
   border-left-width: 3px;
 }
-.bd-top-3 {
+.bd-t-3 {
   border-top-width: 3px;
 }
-.bd-bottom-3 {
+.bd-b-3 {
   border-bottom-width: 3px;
 }
-.bd-right-2 {
+.bd-v-3 {
+  border-top-width: 3px;
+  border-bottom-width: 3px;
+}
+.bd-h-3 {
+  border-left-width: 3px;
+  border-right-width: 3px;
+}
+.bd-r-2 {
   border-right-width: 2px;
 }
-.bd-left-2 {
+.bd-l-2 {
   border-left-width: 2px;
 }
-.bd-top-2 {
+.bd-t-2 {
   border-top-width: 2px;
 }
-.bd-bottom-2 {
+.bd-b-2 {
   border-bottom-width: 2px;
 }
-.bd-right-1 {
+.bd-v-2 {
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+}
+.bd-h-2 {
+  border-left-width: 2px;
+  border-right-width: 2px;
+}
+.bd-r-1 {
   border-right-width: 1px;
 }
-.bd-left-1 {
+.bd-l-1 {
   border-left-width: 1px;
 }
-.bd-top-1 {
+.bd-t-1 {
   border-top-width: 1px;
 }
-.bd-bottom-1 {
+.bd-b-1 {
   border-bottom-width: 1px;
+}
+.bd-v-1 {
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+.bd-h-1 {
+  border-left-width: 1px;
+  border-right-width: 1px;
 }
 /***************************************
    * Alignment Builder

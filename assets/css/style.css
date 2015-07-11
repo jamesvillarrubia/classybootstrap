@@ -1,136 +1,84 @@
-/**
- * A clean concise theme for your GitHub projects
- *
- * Licenced under GPL v3
- * http://www.gnu.org/licenses/gpl.html
- **/
-
-/* Page */
-body {
-	background: #333333 url('../images/page-background.png') repeat top left;
-	font-family: arial,sans-serif;
-	padding:1%;
-	margin:1%;
+.group {
 }
-/* Header */
-header {
-	padding-top: 50px;
-	padding-bottom: 28px;
+.group .subgroup {
+    margin-left: 20px;
 }
 
-
-div.credits {
-	padding-top: 9px;
-	margin-top: 30px;
-	margin-bottom: 25px;
-	border-top: 1px solid #DDD2B2;
-	text-align: center;
+.subgroup h4{
+    border-bottom: 1px solid darkgray;
+    margin-top: 30px;
+}
+pre.prettyprint{
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;    
+}
+p{
+    margin: 5px 0;
 }
 
-footer p {
-	color: #333333;
+.demobox{
+    margin:0px;
+    padding: 0px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
 }
 
-div.repo-author {
-	padding-top: 30px;
+#sidebar.affix {
+    top: 20px;
+}
+/* sidebar */
+.bs-docs-sidebar {
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-/* Text */
-p, strong, li {
-    color: #CCCCCC;
-    font-size: 14px;
+/* all links */
+.bs-docs-sidebar .nav>li>a {
+    color: #999;
+    border-left: 2px solid transparent;
+    padding: 4px 20px;
+    font-size: 13px;
+    font-weight: 400;
 }
 
-strong {
-    font-weight: bold;
-    color: #EEEEEE;
+/* nested links */
+.bs-docs-sidebar .nav .nav>li>a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
 }
 
-a {
-	color: #0075B6;
-	text-decoration: none;
+/* active & hover links */
+.bs-docs-sidebar .nav>.active>a, 
+.bs-docs-sidebar .nav>li>a:hover, 
+.bs-docs-sidebar .nav>li>a:focus {
+    color: #563d7c;                 
+    text-decoration: none;          
+    background-color: transparent;  
+    border-left-color: #563d7c; 
+}
+/* all active links */
+.bs-docs-sidebar .nav>.active>a, 
+.bs-docs-sidebar .nav>.active:hover>a,
+.bs-docs-sidebar .nav>.active:focus>a {
+    font-weight: 700;
+}
+/* nested active links */
+.bs-docs-sidebar .nav .nav>.active>a, 
+.bs-docs-sidebar .nav .nav>.active:hover>a,
+.bs-docs-sidebar .nav .nav>.active:focus>a {
+    font-weight: 500;
 }
 
-a:visited {
-	color: #0075B6;
+/* hide inactive nested list */
+.bs-docs-sidebar .nav ul.nav {
+    display: none;           
 }
-
-a:hover {
-	text-decoration: underline;
-}
-
-h1, h2 {
-	font-family: georgia,serif;
-}
-
-h1 {
-	font-style: italic;
-	color: #eee;
-	font-size: 50px;
-	margin: 0;
-}
-
-h2 {
-	color: #CCCCCC;
-	font-size: 20px;
-	line-height: 23px;
-	padding-top: 15px;
-}
-
-h3, h4 {
-	color: #FFFFFF;
-	font-weight: bold;
-	font-family: inherit;
-}
-
-h3 {
-	font-size: 28px;
-	margin-top: 40px;
-}
-
-h4 {
-	font-size: 20px;
-	margin-top: 20px;
-}
-
-/* Useful classes and styles */
-a.github-ribbon {
-	position: absolute;
-	top: 45px;
-	left: 0;
-	border: 0;
-}
-
-
-
-code {
-	margin-top: 15px;
-	border: 3px solid #FFFFFF;
-	background-color: #CCCC99;
-	display: block;
-	padding: 20px;
-	font-family: monospace;
-	-webkit-box-shadow: 3px 3px 5px #000000;
-	-moz-box-shadow: 3px 3px 5px #000000;
-	box-shadow: 3px 3px 5px #000000;
-	overflow-x: auto;
-}
-
-pre.prettyprint {
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-
-img.repo-author-logo {
-	float: left;
-	margin-right: 15px;
-}
-
-/* Media queries */
-/* Hide the ribbon when we are on a phone, screen is too small */
-@media only screen and (max-width: 479px) {
-	a.github-ribbon {
-		display: none;
-	}
+/* show active nested list */
+.bs-docs-sidebar .nav>.active>ul.nav {
+    display: block;           
 }

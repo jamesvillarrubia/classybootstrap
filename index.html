@@ -1,82 +1,212 @@
 <!DOCTYPE html>
 <html lang='en'>
 	<head>
-		<title>My GitHub project</title>
+		<title>Classy Bootstrap</title>
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!--[if lt IE 9]><script type='text/javascript' src='assets/javascript/html5.js'></script><![endif]-->
-		<script type='text/javascript' src='assets/javascript/prettify.js'></script>
     <script type='text/javascript' src='assets/js/jquery-2.1.0.min.js'></script>
     <script type='text/javascript' src='assets/js/bootstrap.js'></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script type='text/javascript' src='assets/js/app.js'></script>    
 
+
+    <link rel='stylesheet' type='text/css' href='assets/css/bootstrap.css' />
 		<link rel='stylesheet' type='text/css' href='assets/css/style.css' />
-		<link rel='stylesheet' type='text/css' href='assets/css/bootstrap.css' />
-		<link rel='stylesheet' type='text/css' href='assets/css/prettify.css' />
+    <link rel='stylesheet' type='text/css' href='assets/css/classy.css' />
 	</head>
-<body onload='prettyPrint()'>
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Brand</a>
+  <body>     
+  <!-- Top Navbar -->
+  <div class="navbar navbar-inverse">
+      <div class="container">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle"
+                      data-toggle="collapse"
+                      data-target=".navbar-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+                Classy Bootstrap
+              </a>
+          </div>
+          <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#contact">Contact</a></li>
+              </ul>
+          </div>
       </div>
-  
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-  <section class="panel jumbotron">
-    <h1>Your Project Title</h1>
-    
-    <a class="btn btn-primary btn-lg" role="button">Learn more</a>
-    <a class='btn btn-primary btn-lg' href='https://github.com/USER/REPOSITORY/zipball/master'>Download</a>
-    
-    <h2>Check out my awesome project:</h2>
-  	
-        <pre class='prettyprint'>
-          &lt;script&gt;
-          function display_awesomeness();
-          {
-            alert("Awesomeness!");
-          }
-          &lt;/script&gt;
-        &lt;form&gt;
-          &lt;input type="button" value="Click me!" onclick="display_awesomeness()" /&gt;
-        &lt;/form&gt;
-  			</pre>
-  </section>      	
-  
-  <footer>
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Footer</a>
-        </div>
-      </div><!-- /.container-fluid -->
-    </nav>
-  </footer>
+  </div>
+  <div class="row">
+      <!--Nav Bar -->
+      <nav class="col-xs-3 bs-docs-sidebar">
+          <ul id="sidebar" class="nav nav-stacked">
+              <li>
+                  <a href="#GroupA">Spacing</a>
+                  <ul class="nav nav-stacked">
+                      <li><a href="#Spacing-Options">Options</a></li>
+                      <li><a href="#Spacing-Padding">Padding</a></li>
+                      <li><a href="#Spacing-Margin">Margin</a></li>
+                      <li><a href="#Spacing-Gutters">Gutters</a></li>
+                  </ul>
+              </li>
+              <li>
+                  <a href="#Colors">Colors</a>
+                  <ul class="nav nav-stacked">
+                      <li><a href="#Colors-Options">Options</a></li>
+                      <li><a href="#Colors-Text">Text</a></li>
+                      <li><a href="#Colors-Backgrounds">Backgrounds</a></li>
+                      <li><a href="#Colors-Borders">Borders</a></li>
+                      <li><a href="#Colors-Hovering">Hovering</a></li>
+                      <li><a href="#Colors-Visited">Visited</a></li>
+                  </ul>
+              </li>
+              <li>
+                  <a href="#Borders">Borders</a>
+                  <ul class="nav nav-stacked">
+                      <li><a href="#Borders-Sizing">Sizing</a></li>
+                      <li><a href="#Borders-Individual">Individual</a></li>
+                      <li><a href="#Borders-Removing">Removing</a></li>
+                  </ul>
+              </li>
+              <li>
+                  <a href="#Alignment">Alignment</a>
+              </li>
+              <li>
+                  <a href="#Fonts">Fonts</a>
+                  <ul class="nav nav-stacked">
+                      <li><a href="#Fonts-Sizing">Sizing</a></li>
+                      <li><a href="#Fonts-Common">Common Uses</a></li>
+                  </ul>
+              </li>
+              <li>
+                  <a href="#Transitions">Transitions</a>
+              </li>
+          </ul>
+      </nav>
+      <!--Main Content -->
+      <div class="col-xs-9">
+          <section id="Spacing" class="group">
+              <h3>Spacing</h3>
+              <div id="Spacing-Options" class="subgroup">
+                  <h4>Options</h4>
+                  <p>Classy Bootstrap offers several variations to its padding and margins.  To enable these, you must decide what to call your size options.  Originally, we used the same types as Bootstrap, but this became confusing as the padding was "xs", but with bootstrap made it seem like it only <em>applied</em> when viewed with "xs" screen size.  By default our sizes are 1-7.  We avoid 0 becuase 0 is reserved for removing features in other extended class sets.</p>
+                  <p>In your <code>app.less</code> file, after inserting <code>@import "classy"</code>, you can overide the default size names with the less array:
+                  <pre class="prettyprint lang-css pd-3">@size-list:   "1",    "2",    "3",    "4",    "5",    "6",    "7";</pre>
+                  <p>Then to set the various pixel size of the margins and padding, drop the following arrays in as well, with your chosen sizes</p>
+                  <pre class="prettyprint lang-css pd-3">@pd-list:      3,          5,          7,          10,         15,         30,         60;<br>@mg-list:      3,          5,          7,          10,         15,         30,         60;</pre>
+              </div>
+              <div id="Spacing-Padding" class="subgroup">
+                  <h4>Padding</h4>
+                  <p>To use padding, follow the format of <code>pd-{size-name}</code> with the size-name that you decided in your size-list;
+                  By default the following are enabled.</p>
+                  <div class="demobox pd-1">.pd-1</div>
+                  <div class="demobox pd-2">.pd-2</div>
+                  <div class="demobox pd-3">.pd-3</div>
+                  <div class="demobox pd-4">.pd-4</div>
+                  <div class="demobox pd-5">.pd-5</div>
+                  <div class="demobox pd-6">.pd-6</div>
+                  <div class="demobox pd-7">.pd-7</div>
+                  <br>
+                  <p>Each padding size also has variations as well. Use a <code>-v-</code> to make the padding only vertical.</p>
+                  <div class="demobox pd-v-5">.pd-v-5</div>
+                  <p>Use a <code>-h-</code> to make the padding only horizontal.</p>
+                  <div class="demobox pd-h-5">.pd-h-5</div>
+                  <br>
+                  <p>You can also apply padding one side at a time with the <code>l,r,t,b</code>, respectively left, right, top, bottom.</p>
+                    <div class="row mg-n">
+                      <div class="demobox col-xs-3 pd-l-4">.pd-l-4</div>
+                      <div class="demobox col-xs-3 pd-r-4">.pd-r-4</div>
+                      <div class="demobox col-xs-3 pd-t-4">.pd-t-4</div>
+                      <div class="demobox col-xs-3 pd-b-4">.pd-b-4</div>
+                    </div>
+                  <br>
+                  <p>To remove padding from an element, you can replace the size name with <code>n</code> for none. This will override any of the other padding settings from Classy Bootstrap. These would look like <code>pd-v-n</code> or <code>pd-t-n</code> or simply <code>pd-n</code> to remove all padding.</p>
+              </div>
+              <div id="Spacing-Margin" class="subgroup">
+                  <h4>Margins</h4>
+                  <p>Margins are the exact same as padding except <code>pd</code> becomes <code>mg</code>.  So <code>.pd-v-7</code> for the largest padding applied vertically would be <code>.mg-v-7</code> to make that a margin instead.  Be careful not to upset the bootstrap grids when using these margin setings.
+              </div>
+              <div id="Spacing-Gutter" class="subgroup">
+                  <h4>Gutters</h4>
+                  <p>Because sometimes you want to remove gutters, you can apply the <code>.no-gutters</code> class to your row element.  This will provide the following css: 
+<pre class="prettyprint lang-css pd-3">.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+</pre>
+
+                  <p>Similar effects can be achieved through <code>mg-h-n</code> and <code>pd-h-n</code>, but <code>.no-gutters</code> makes a common combo of classes more semantic and attuned to Bootstrap specifically.
+              </div>
+          </section>
+
+          <section id="Colors" class="group">
+              <h3>Colors</h3>
+
+              <div id="Colors-Options" class="subgroup">
+                  <h4>Options</h4>              
+                  <p>Every project has its own color scheme.  In order to maximize efficiency, we can build a list of those default colors and then generate classes based on them, much like Bootstrap does with its helper classes (primary, success, warning, etc.).  In your app.less file, underneath <code>@import "classy"</code>, you can add colors in the following manner.  The defaults are shown below.</p>
+<pre class="prettyprint lang-css pd-3">
+@blue:    #00aef3;
+@navy:    #0f2446;
+@red:     #e31818;
+@gray:    #f6f6f6;
+@darkgray:  #CCCCCC;
+@white:   #ffffff;
+@black:   #000000;
+@accent:   #262626;
+</pre>
+                  <p> This creates color variables that you can use anywhere you'd like in your less files.</p>
+                  <p> To extend the classes, however, you also need to create two Less arrays, like so:</p>
+<pre class="prettyprint lang-css pd-3">
+@cnames:  "blue",   "navy",   "red",    "gray",   "darkgray",   "white",  "black",  "accent";
+@cvals:   "@{blue}",  "@{navy}",  "@{red}", "@{gray}",  "@{darkgray}",  "@{white}", "@{black}", "@{accent}";
+</pre>
+                  <p> The <code>cnames</code> array is the name array that will be inserted into the class. The <code>cvals</code> array simply calls the variable you made above and attaches them to the respective name</p>
+              </div>
+              <div id="Colors-Text" class="subgroup">
+                  <h4>Text</h4>
+                  <p></p>
+              </div>
+              <div id="Colors-Backgrounds" class="subgroup">
+                  <h4>Backgrounds</h4>
+              </div>
+              <div id="Colors-Borders" class="subgroup">
+                  <h4>Borders</h4>
+              </div>
+              <div id="Colors-Hovering" class="subgroup">
+                  <h4>Hovering</h4>
+              </div>
+              <div id="Colors-Visited" class="subgroup">
+                  <h4>Visited</h4>
+              </div>              
+          </section>
+
+
+          <section id="Borders" class="group">
+              <h3>Borders</h3>
+              <div id="Borders-Sizing" class="subgroup">
+                  <h4>Sizing</h4>
+              </div>
+              <div id="Borders-Individual" class="subgroup">
+                  <h4>Individual</h4>
+              </div>
+              <div id="Borders-Removing" class="subgroup">
+                  <h4>Removing</h4>
+              </div>
+          </section>   
+
+   
+      </div>
+  </div>
 </body>
 </html>

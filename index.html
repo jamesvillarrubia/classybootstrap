@@ -163,9 +163,9 @@
                   <p>Classy Bootstrap offers several variations to its padding and margin classes.  To enable any of these, however, you must first decide how to reference your size classifications.  Originally, we used the same abbreviations as Bootstrap, but this became confusing - padding was meant to BE extra-small, not just only apply to "xs" screens. 
                   <p>To avoid confustion, we use numeric size names, much like <code>h1</code> or <code>h4</code>.  By default our sizes are 1-7.  We avoid 0 because it is reserved for removing features in other extended class sets.</p>
                   <p>In your <code>app.less</code> file, after inserting <code>@import "classy"</code>, you can overide the default size names with the less array:
-                  <pre class="prettyprint lang-css pd-3">@size-list:   "1",    "2",    "3",    "4",    "5",    "6",    "7";</pre>
+                  <pre class="prettyprint lang-css pd-3">@size-list:   "6",    "5",    "4",    "3",    "2",    "1";</pre>
                   <p>Then set the various pixel size of the margins and padding by dropping the following arrays in to your <code>app.less</code> with your chosen sizes:</p>
-                  <pre class="prettyprint lang-css pd-3">@pd-list:      3,          5,          7,          10,         15,         30,         60;<br>@mg-list:      3,          5,          7,          10,         15,         30,         60;</pre>
+                  <pre class="prettyprint lang-css pd-3">@pd-list:      3,          5,          7,          10,         15,         30;<br>@mg-list:       3,          5,          7,          10,         15,         30;</pre>
                   <p><em><strong>IMPORTANT:</strong></em> Make sure that your size list and mg/pd lists have the exact same number of elements!</p>
               </div>
               <div id="Spacing-Padding" class="subgroup">
@@ -187,10 +187,10 @@
                   <br>
                   <p>You can also apply padding one side at a time with the <code>l,r,t,b</code>, respectively left, right, top, bottom.</p>
                     <div class="row mg-n">
-                      <div class="demobox col-xs-3 pd-l-4">.pd-l-4</div>
-                      <div class="demobox col-xs-3 pd-r-4">.pd-r-4</div>
-                      <div class="demobox col-xs-3 pd-t-4">.pd-t-4</div>
-                      <div class="demobox col-xs-3 pd-b-4">.pd-b-4</div>
+                      <div class="demobox col-xs-3 pd-l-3">.pd-l-3</div>
+                      <div class="demobox col-xs-3 pd-r-3">.pd-r-3</div>
+                      <div class="demobox col-xs-3 pd-t-3">.pd-t-3</div>
+                      <div class="demobox col-xs-3 pd-b-3">.pd-b-3</div>
                     </div>
                   <br>
                   <p>To remove padding from an element, you can replace the size name with <code>n</code> for none. This will override any of the other padding settings from Classy Bootstrap. These would look like <code>pd-v-n</code> or <code>pd-t-n</code> or simply <code>pd-n</code> to remove all padding.</p>
@@ -261,25 +261,25 @@
               <div id="Colors-Backgrounds" class="subgroup">
                   <h4>Backgrounds</h4>
                   <p>Backgrounds are just like text, except with a <code>bg</code> prefix.
-                  <div class="bg-blue tx-white demobox bd-n pd-2">.bg-blue</div>
-                  <div class="bg-navy tx-white demobox bd-n pd-2">.bg-navy</div>
-                  <div class="bg-red tx-white demobox bd-n pd-2">.bg-red</div>
-                  <div class="bg-darkgray tx-white demobox bd-n pd-2">.bg-darkgray</div>
-                  <div class="bg-black tx-white demobox bd-n pd-2">.bg-black</div>
+                  <div class="bg-blue tx-white demobox bd-n pd-5">.bg-blue</div>
+                  <div class="bg-navy tx-white demobox bd-n pd-5">.bg-navy</div>
+                  <div class="bg-red tx-white demobox bd-n pd-5">.bg-red</div>
+                  <div class="bg-darkgray tx-white demobox bd-n pd-5">.bg-darkgray</div>
+                  <div class="bg-black tx-white demobox bd-n pd-5">.bg-black</div>
               </div>
               <div id="Colors-Borders" class="subgroup">
                   <h4>Borders</h4>
                   <p>Border colors are just like text and backgrounds, except with a <code>bd</code> prefix.
-                  <div class="bd-blue  demobox bd-2 pd-2">.bg-blue</div>
-                  <div class="bd-navy demobox bd-2 pd-2">.bg-navy</div>
-                  <div class="bd-red demobox bd-2 pd-2">.bg-red</div>
-                  <div class="bd-darkgray  demobox bd-2 pd-2">.bg-darkgray</div>
-                  <div class="bd-black demobox bd-2 pd-2">.bg-black</div>
+                  <div class="bd-blue  demobox bd-5 pd-5">.bg-blue</div>
+                  <div class="bd-navy demobox bd-5 pd-5">.bg-navy</div>
+                  <div class="bd-red demobox bd-5 pd-5">.bg-red</div>
+                  <div class="bd-darkgray  demobox bd-5 pd-5">.bg-darkgray</div>
+                  <div class="bd-black demobox bd-5 pd-5">.bg-black</div>
               </div>
               <div id="Colors-Hovering" class="subgroup">
                   <h4>Hovering</h4>
                   <p>To alter the element's coloring on hover, you can add the <code>-hv-</code> to any of the text, background, or border color classes.</p>
-                  <div class="bg-blue tx-white bd-red AND bg-hv-red tx-hv-black bd-hv-black  demobox bd-2 pd-2">.bg-blue .tx-white .bd-red AND .bg-hv-red .tx-hv-black .bd-hv-black</div>
+                  <div class="bg-blue tx-white bd-red AND bg-hv-red tx-hv-black bd-hv-black  demobox bd-5 pd-5">.bg-blue .tx-white .bd-red AND .bg-hv-red .tx-hv-black .bd-hv-black</div>
               </div>
               <div id="Colors-Visited" class="subgroup">
                   <h4>Visited</h4>
@@ -297,9 +297,9 @@
                   <pre class="prettyprint lang-css pd-3">
 @bd-list:     1,      2,      3,      4,      5,      10,     15;</pre>
                   <p>To give an element a border, simply use <code>bd-{size-name}</code>Here are some examples:</p>
-                  <div class="bd-blue bd-1 demobox pd-2 mg-1">.bd-1</div>
-                  <div class="bd-blue bd-2 demobox pd-2 mg-1">.bd-2</div>
-                  <div class="bd-blue bd-5 demobox  pd-2 mg-1">.bd-5</div>
+                  <div class="bd-blue bd-1 demobox pd-5 mg-6">.bd-1</div>
+                  <div class="bd-blue bd-2 demobox pd-5 mg-6">.bd-2</div>
+                  <div class="bd-blue bd-5 demobox  pd-5 mg-6">.bd-5</div>
               </div>
               <div id="Borders-Removing" class="subgroup">
                   <h4>Removing</h4>
@@ -308,11 +308,11 @@
               <div id="Borders-Individual" class="subgroup">
                   <h4>Individual</h4>
                   <p>To add a border to the left, right, bottom, top, vertical, or horizontal apply the same prefix codes as with padding and margins. For exampe: </p>
+                  <div class="bd-blue bd-l-1 pd-2 mg-1">.bd-l-1 .bd-blue</div>
                   <div class="bd-blue bd-l-3 pd-2 mg-1">.bd-l-3 .bd-blue</div>
-                  <div class="bd-blue bd-l-7 pd-2 mg-1">.bd-l-7 .bd-blue</div>
                   <p>Notice how the <code>bd-blue</code> automatically applies a 3px solid style.</p> To remove the default style, you need to zero out the generic border with a <code>bd-n</code>.  Because the <code>bd-n</code> is placed after the coloring but before the left, right, top, bottom classes, you can override them to add a border on one side only.</p>
+                  <div class="bd-blue bd-l-1 bd-n pd-2 mg-1">.bd-l-1 .bd-n .bd-blue</div>
                   <div class="bd-blue bd-l-3 bd-n pd-2 mg-1">.bd-l-3 .bd-n .bd-blue</div>
-                  <div class="bd-blue bd-l-7 bd-n pd-2 mg-1">.bd-l-7 .bd-n .bd-blue</div>
               </div>
           </section>   
           <section id="Alignment" class="group">
@@ -358,8 +358,67 @@
 </xmp>
               </div>
           </section>
+          <section id="Fonts" class="group">
+              <h3>Fonts</h3>
+              <div id="Fonts-Sizing" class="subgroup">
+                <h4>Sizing</h4>
+                <p>Bootstrap has some great additional classes to aid with Headline elements (<code>h1,h2, etc.</code>).  But it doesn't leave much flexibility because each <code>h#</code> comes with its own margin and block display setting and font-family, etc. Classy Bootstrap takes that idea and runs with it.  We provide font-sizes that are distinct from the headline sizes.  Just apply a class in the format <code>ft-{size-name}</code> and your fonts will be resized.
+                  <div class="demobox ft-1">.ft-1</div>
+                  <div class="demobox ft-2">.ft-2</div>
+                  <div class="demobox ft-3">.ft-3</div>
+                  <div class="demobox ft-4">.ft-4</div>
+                  <div class="demobox ft-5">.ft-5</div>
+                  <div class="demobox ft-6">.ft-6</div>
+              </div>
+              <div id="Fonts-Uses" class="subgroup">
+                <h4>Common Uses</h4>
+                <p>There are also some extra classes that map to common classes.  We extended some and duplicated others to make it easier to follow.</p>
+<pre class="prettyprint lang-css pd-3">
+  .ft-head{
+    font-family: @headfont;
+  }
+  .ft-body{
+    font-family: @bodyfont;
+  }
+  .ft-light{
+    font-weight: 100;
+  }
+  .ft-upper{
+    text-transform: uppercase;
+  }
+  .ft-heavy{
+    font-weight: 700;
+  }
+</pre>
+                  <p>Set the <code>@headfont</code> and the <code>@bodyfont</code> in your <code>app.less</code> file as you would any other LESS variable.
+              </div>
+          </section>
+          <section id="Transitions" class="group">
+              <h3>Transitions</h3>
+              <div class="subgroup">
+                <p>We also add a default transition class to anything that change position or color.  This makes buttons and other hover features very easy to maintain and keep uniform.</p>
+<pre class="prettyprint lang-css pd-3">
+.dtran, .default-transition{
+  transition: 0.15s ease;
+}
+</pre>
+                <p>For example:</p>
+                <div class="demobox bg-blue bg-hv-black tx-white dtran pd-4 mg-v-6">Hover with the transition.</div>
+                <div class="demobox bg-blue bg-hv-black tx-white pd-4 mg-v-6">Hover without.</div>
+              </div>
+          </section>
    </div>
       </div>
   </div>
+  <footer class="mg-t-1 pd-v-2 bg-black">
+    <div class="container">
+      <div class="row">
+        <div class="ft-body tx-white tx-center-xs">
+          Copyright 2015 James Villarrubia
+        </div>
+      </div>
+    </div>
+
+  </footer>
 </body>
 </html>

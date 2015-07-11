@@ -1,35 +1,38 @@
-  //@import (reference) "less/variables.less";
+@blue: 		#00aef3;
+@navy: 		#0f2446;
+@red: 		#e31818;
+@gray: 		#f6f6f6;
+@darkgray:	#CCCCCC;
+@white: 	#ffffff;
+@black: 	#000000;
+@oppgray: 	#262626;
+@cnames: 	"blue",		"navy",		"red",		"gray",		"darkgray",		"white",	"black",	"oppgray";
+@cvals: 	"@{blue}",	"@{navy}",	"@{red}",	"@{gray}",	"@{darkgray}",	"@{white}",	"@{black}",	"@{oppgray}";
 
-  @blue: 		#00aef3;
-  @navy: 		#0f2446;
-  @red: 		#e31818;
-  @gray: 		#f6f6f6;
-  @darkgray:	#CCCCCC;
-  @white: 		#ffffff;
-  @black: 		#000000;
-  @oppgray: 	#262626;
-  @cnames: 	"blue",		"navy",		"red",		"gray",		"darkgray",		"white",	"black",	"oppgray";
-  @cvals: 	"@{blue}",	"@{navy}",	"@{red}",	"@{gray}",	"@{darkgray}",	"@{white}",	"@{black}",	"@{oppgray}";
+@headfont:  "Lato", Helvetica, sans-serif;
+@bodyfont:  "Lato", Helvetica, sans-serif;
 
-  //These are the custom sizes
-  @size-list: 	"1",		"2",		"3",		"4",		"5",		"6",		"7";
-  @bd-list: 	1,			2,			3,			4,			5,			10,			15;
+//These are the custom sizes
+@size-list: 	"1",		"2",		"3",		"4",		"5",		"6",		"7";
+@bd-list: 		1,			2,			3,			4,			5,			10,			15;
+@pd-list:     	3,          5,          7,          10,         15,         30,         60;
+@mg-list:     	3,          5,          7,          10,         15,         30,         60;
+@ft-list: 		10,			12,			14,			17,			20,			30,			45;
 
+// These are the minimums and maximums on screen widths.
+// The 0 and 7000 are defaults in order to provide outer bounds in the loop.
+@min-list: 		0,				"@{screen-sm}",		"@{screen-md}",		"@{screen-lg}";
+@max-list: 		"@{screen-sm}",	"@{screen-md}",		"@{screen-lg}",		"7000px";
 
-  // These are the minimums and maximums on screen widths.
-  // The 0 and 7000 are defaults in order to provide outer bounds in the loop.
-  @min-list: 		0,				"@{screen-sm}",		"@{screen-md}",		"@{screen-lg}";
-  @max-list: 		"@{screen-sm}",	"@{screen-md}",		"@{screen-lg}",		"7000px";
+//These are the sizes that can be applied to class to match bootstrap widths
+@width-list: 	"xs",			"sm",				"md",			"lg";
 
-  //These are the sizes that can be applied to class to match bootstrap widths
-  @width-list: 		"xs",			"sm",				"md",			"lg";
+//These are the directions lists, full and abbreviated
+@dir-list:		"left",			"right",			"top",			"bottom";
+@dr-list:		"l",			"r",				"t",			"b";
 
-  //These are the directions lists, full and abbreviated
-  @dir-list:		"left",			"right",			"top",			"bottom";
-  @dr-list:			"l",			"r",				"t",			"b";
-
-  //Alignment options
-  @pos-list:		"left",			"center",			"right",		"justify";
+//Alignment options
+@pos-list:		"left",			"center",			"right",		"justify";
 
 
 
@@ -105,7 +108,7 @@
 
 
   /***************************************
-   * Allignment Builder
+   * Alignment Builder
    **************************************/
    // .tx-center-not-xs	- make the text center on everything except xs width
    // .tx-right-xs		- make the text right on xs width
@@ -140,3 +143,93 @@
 		  }
 		  .x((@x + 1));
 	  } .x;
+
+
+  /***************************************
+   * Spacing Builder
+   **************************************/
+  .j(@j: length(@size-list)) when (@j > 0) {
+	@name:  e(extract(@size-list, @j));
+	@value: e(extract(@pd-list, @j));
+	.pd-v-@{name}{padding-top:~'@{value}px';padding-bottom:~'@{value}px';}
+	.pd-h-@{name}{padding-left:~'@{value}px';padding-right:~'@{value}px';}
+	.pd-l-@{name}{padding-left:~'@{value}px';}
+	.pd-r-@{name}{padding-right:~'@{value}px';}
+	.pd-t-@{name}{padding-top:~'@{value}px';}
+	.pd-b-@{name}{padding-bottom:~'@{value}px';}
+	.pd-@{name}{ border-right-width:~'@{value}px';}
+	.j((@j - 1));
+  } .j;
+  .pd-n{padding:0px;}
+  .pd-v-n{padding-top:0px; padding-bottom: 0px;}
+  .pd-h-n{padding-left:0px;padding-right: 0px;}
+  .pd-l-n{padding-left:0px;}
+  .pd-r-n{padding-right:0px;}
+  .pd-t-n{padding-top:0px;}
+  .pd-b-n{padding-bottom:0px;}
+
+  .k(@k: length(@size-list)) when (@k > 0) {
+	@name:  e(extract(@size-list, @k));
+	@value: e(extract(@mg-list, @k));
+	.mg-v-@{name}{margin-top:~'@{value}px';margin-bottom:~'@{value}px';}
+	.mg-h-@{name}{margin-left:~'@{value}px';margin-right:~'@{value}px';}
+	.mg-l-@{name}{margin-left:~'@{value}px';}
+	.mg-r-@{name}{margin-right:~'@{value}px';}
+	.mg-t-@{name}{margin-top:~'@{value}px';}
+	.mg-b-@{name}{margin-bottom:~'@{value}px';}
+	.mg-@{name}{ border-right-width:~'@{value}px';}
+	.j((@j - 1));
+  } .j;
+  .mg-n{margin:0px;}
+  .mg-v-n{margin-top:0px; margin-bottom: 0px;}
+  .mg-h-n{margin-left:0px;margin-right: 0px;}
+  .mg-l-n{margin-left:0px;}
+  .mg-r-n{margin-right:0px;}
+  .mg-t-n{margin-top:0px;}
+  .mg-b-n{margin-bottom:0px;}
+
+  	/***************************************
+	* Font Size Builder
+	**************************************/
+	.ftb(@ftb: length(@size-list)) when (@ftb > 0) {
+	  @name:  e(extract(@size-list, @ftb));
+	  @value: e(extract(@ft-list, @ftb));
+	  .ft-size-@{name}{ font-size:~'@{value}px';}
+	  .ftb((@ftb - 1));
+	} .ftb;
+
+
+
+  /***************************************
+   * Extra Widgets
+   **************************************/
+
+  .dtran, .default-transition{
+	transition: 0.15s ease;
+  }
+
+  .row.no-gutters {
+	margin-right: 0;
+	margin-left: 0;
+  }
+  .row.no-gutters > [class^="col-"],
+  .row.no-gutters > [class*=" col-"] {
+	padding-right: 0;
+	padding-left: 0;
+  }
+
+  .headfont{
+	font-family: @headfont;
+  }
+  .bodyfont{
+	font-family: @bodyfont;
+  }
+  .lightfont{
+	font-weight: 100;
+  }
+  .upperfont{
+	text-transform: uppercase;
+  }
+  .heavyfont{
+	font-weight: 700;
+  }

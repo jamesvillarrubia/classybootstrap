@@ -7,6 +7,7 @@ header{
     background-image: url("../images/purple.jpg");
     background-position: top center;
     position: relative;
+    padding: 5px;
     margin-bottom: 30px;
 }
 header h1{
@@ -20,16 +21,30 @@ header h1{
     margin: 0px;
     padding-top: 150px;
 }
+
 header h3{
     color: white;
     text-align: center;
-    line-height: 70px;
+    line-height: 40px;
     font-size: 30px;
     position: relative;
     z-index: 10;
     margin: 0px;
     padding-bottom: 100px;
+    padding-top: 40px;
 }
+
+@media (max-width: 340px){
+    header h1 {
+        font-size: 70px;
+        line-height: 70px;
+    }
+    header h3 {
+        font-size: 20px;
+    }
+}
+
+
 header .colorizer{
   position: absolute;
   top: 0;

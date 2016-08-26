@@ -1,38 +1,80 @@
-@blue: 		#00aef3;
-@navy: 		#0f2446;
-@red: 		#e31818;
-@gray: 		#f6f6f6;
-@darkgray:	#CCCCCC;
-@white: 	#ffffff;
-@black: 	#000000;
-@oppgray: 	#262626;
-@cnames: 	"blue",		"navy",		"red",		"gray",		"darkgray",		"white",	"black",	"oppgray";
-@cvals: 	"@{blue}",	"@{navy}",	"@{red}",	"@{gray}",	"@{darkgray}",	"@{white}",	"@{black}",	"@{oppgray}";
 
-@headfont:  "Lato", Helvetica, sans-serif;
+// Variables
+@primary: #4FADD8;
+@darkprimary: #2579A2; // '#0277BD; //
+@lightprimary: #BCE0F2;
+
+@gray: #767676;
+@darkgray: #404040;
+@lightgray: #f2f2f2;
+
+@accent: #f18F01;
+@darkaccent: #E26D0B;
+
+@posaccent: #92D050;
+@darkposaccent: #458210;
+
+@negaccent: #BA3233;
+@darknegaccent: #800000;
+
+
+@white:     #ffffff;
+@black:     #262626;
+
+@cnames:    "primary",
+            "darkprimary",
+            "lightprimary",
+            "gray",
+            "darkgray",
+            "lightgray",
+            "accent",
+            "darkaccent",
+            "posaccent",
+            "darkposaccent",
+            "negaccent",
+            "darknegaccent",
+            "white",
+            "black";
+@cvals:     "@{primary}",
+            "@{darkprimary}",
+            "@{lightprimary}",
+            "@{gray}",
+            "@{darkgray}",
+            "@{lightgray}",
+            "@{accent}",
+            "@{darkaccent}",
+            "@{posaccent}",
+            "@{darkposaccent}",
+            "@{negaccent}",
+            "@{darknegaccent}",
+            "@{white}",
+            "@{black}";
+
+@headfont:  "Bebas2", Helvetica, sans-serif;
 @bodyfont:  "Lato", Helvetica, sans-serif;
 
+
 //These are the custom sizes
-@size-list: 	"6",		"5",		"4",		"3",		"2",		"1";
-@bd-list: 		1,			2,			3,			5,			10,			15;
-@pd-list:     	5,          10,         15,         20,         30,         60;
-@mg-list:     	5,          10,         15,         20,         30,         60;
-@ft-list: 		10,			12,			14,			17,			20,			45;
+@size-list:     "1",        "2",        "3",        "4",        "5",        "6",        "7";
+@bd-list:       1,          2,          3,          4,          5,          10,         15;
+@pd-list:       3,          5,          7,          10,         15,         30,         60;
+@mg-list:       3,          5,          7,          10,         15,         30,         60;
+@ft-list:       1,         1.2,         1.4,         1.6,         2,         3,         4.5;
 
 // These are the minimums and maximums on screen widths.
 // The 0 and 7000 are defaults in order to provide outer bounds in the loop.
-@min-list: 		0,				"@{screen-sm}",		"@{screen-md}",		"@{screen-lg}";
-@max-list: 		"@{screen-sm}",	"@{screen-md}",		"@{screen-lg}",		"7000px";
+@min-list:      "0px",          "@{screen-sm}",     "@{screen-md}",     "@{screen-lg}";
+@max-list:      "@{screen-sm}", "@{screen-md}",     "@{screen-lg}",     "7000px";
 
 //These are the sizes that can be applied to class to match bootstrap widths
-@width-list: 	"xs",			"sm",				"md",			"lg";
+@width-list:    "xs",           "sm",               "md",           "lg";
 
 //These are the directions lists, full and abbreviated
-@dir-list:		"left",			"right",			"top",			"bottom";
-@dr-list:		"l",			"r",				"t",			"b";
+@dir-list:      "left",         "right",            "top",          "bottom";
+@dr-list:       "l",            "r",                "t",            "b";
 
 //Alignment options
-@pos-list:		"left",			"center",			"right",		"justify";
+@pos-list:      "left",         "center",           "right",        "justify";
 
 
 
@@ -40,67 +82,69 @@
   /***************************************
    * Color Builder
    **************************************/
-   //	.tx-blue 		- make text blue
-   //	.tx-hv-blue		- make text blue on hover
-   //	.tx-vs-blue		- make text blue after visit
-   //	.bg-blue		- make background blue
-   //	.bg-hv-blue		- make background blue on hover
-   //	.bd-blue		- make border blue
-   //	.bd-hv-blue		- make border blue on hover
-	  .c(@c: length(@cnames)) when (@c > 0) {
-		  @name:  e(extract(@cnames, @c));
-		  @value: e(extract(@cvals, @c));
-		  .tx-@{name},
-		  .tx-hv-@{name}:hover,
-		  .tx-hv-@{name}:hover:visited,
-		  .tx-vs-@{name}{
-			  color: @value;
-		  }
-		  .bg-@{name},
-		  .bg-hv-@{name}:hover{
-			  background-color: @value
-		  }
-		  .bd-@{name},
-		  .bd-hv-@{name}:hover{
-			  border-color: @value
-		  }
+   //   .tx-blue        - make text blue
+   //   .tx-hv-blue     - make text blue on hover
+   //   .tx-vs-blue     - make text blue after visit
+   //   .bg-blue        - make background blue
+   //   .bg-hv-blue     - make background blue on hover
+   //   .bd-blue        - make border blue
+   //   .bd-hv-blue     - make border blue on hover
+      .c(@c: length(@cnames)) when (@c > 0) {
+          @name:  e(extract(@cnames, @c));
+          @value: e(extract(@cvals, @c));
+          .tx-@{name},
+          .tx-hv-@{name}:hover,
+          .tx-hv-@{name}:hover:visited,
+          .tx-vs-@{name}{
+              color: @value;
+          }
+          .bg-@{name},
+          .bg-hv-@{name}:hover{
+              background-color: @value
+          }
+          .bd-@{name},
+          .bd-hv-@{name}:hover{
+              border-color: @value
+          }
 
-		  .c((@c - 1));
-	  } .c;
-
-
+          .c((@c - 1));
+      } .c;
 
 
+
+  [class*= 'bd-']{
+    border-width: 0px;
+  }
   /***************************************
    * Border Builder
    **************************************/
-   // .bd-1		- make the border width the xxs value from the bd-list
-	  .t(@t: length(@size-list)) when (@t > 0) {
-		  @name:  e(extract(@size-list, @t));
-		  @value: e(extract(@bd-list, @t));
-		  .bd-@{name}{
-			  border-width: ~'@{value}px';
-			  border-style: solid;
-		  }
-		  .t((@t - 1));
-	  } .t;
+   // .bd-1     - make the border width the xxs value from the bd-list
+      .t(@t: length(@size-list)) when (@t > 0) {
+          @name:  e(extract(@size-list, @t));
+          @value: e(extract(@bd-list, @t));
+          .bd-@{name}{
+              border-width: ~'@{value}px';
+              border-style: solid;
+          }
+          .t((@t - 1));
+      } .t;
 
-   // .bd-0		- zero out the border width from above to allow overrides below;
-	  .bd-0{
-		  border-width: 0px;
-	  }
+   // .bd-0     - zero out the border width from above to allow overrides below;
+      .bd-0{
+          border-width: 0px;
+      }
 
 
-   // .bd-1-right	- make the right border xxs;  can override the zero bd and the full border settings;
-	  .y(@y: length(@size-list)) when (@y > 0) {
-		  @name:  e(extract(@size-list, @y));
-		  @value: e(extract(@bd-list, @y));
-		  .bd-right-@{name}{ border-right-width:~'@{value}px';}
-		  .bd-left-@{name}{ border-left-width:~'@{value}px';}
-		  .bd-top-@{name}{ border-top-width:~'@{value}px';}
-		  .bd-bottom-@{name}{ border-bottom-width:~'@{value}px';}
-		  .y((@y - 1));
-	  } .y;
+   // .bd-r-1   - make the right border xxs;  can override the zero bd and the full border settings;
+      .y(@y: length(@size-list)) when (@y > 0) {
+          @name:  e(extract(@size-list, @y));
+          @value: e(extract(@bd-list, @y));
+          .bd-r-@{name}{ border-right-width:~'@{value}px';border-style: solid;}
+          .bd-l-@{name}{ border-left-width:~'@{value}px';border-style: solid;}
+          .bd-t-@{name}{ border-top-width:~'@{value}px';border-style: solid;}
+          .bd-b-@{name}{ border-bottom-width:~'@{value}px';border-style: solid;}
+          .y((@y - 1));
+      } .y;
 
 
 
@@ -110,55 +154,63 @@
   /***************************************
    * Alignment Builder
    **************************************/
-   // .tx-center-not-xs	- make the text center on everything except xs width
-   // .tx-right-xs		- make the text right on xs width
-	  .v(@v: 1) when (@v <= length(@width-list)) {
-		  @pos: e(extract(@pos-list, @v));
-		  .u(@u: 1) when (@u <= length(@width-list)) {
-			  @width:  e(extract(@width-list, @u));
-			 .tx-@{pos}-not-@{width}
-				  {text-align: @pos}
-			  .u((@u + 1));
-		  } .u;
-		  .v((@v + 1));
-	  } .v;
-	  .x(@x: 1) when (@x <= length(@width-list)) {
-		  @width: e(extract(@width-list, @x));
-		  @min: e(extract(@min-list, @x));
-		  @max: e(extract(@max-list, @x));
-		  @media (min-width: ~'@{min}') and (max-width: ~'@{max}'){
-			  .z(@z: length(@pos-list)) when (@z > 0) {
-					  @pos:  e(extract(@pos-list, @z));
-					  .tx-@{pos}-not-@{width}
-						  {text-align: inherit;}
-				  .z((@z - 1));
-			  } .z;
+   // .tx-center        - make the text center
+   // .tx-center-not-xs - make the text center on everything except xs width
+   // .tx-right-xs      - make the text right on xs width
+      .n(@n: 1) when (@n <= length(@width-list)) {
+            @pos: e(extract(@pos-list, @n));
+            .tx-@{pos}
+                {text-align: @pos}
+          .n((@n + 1));
+      } .n;
 
-			  .w(@w: length(@pos-list)) when (@w > 0) {
-				  @pos:  e(extract(@pos-list, @w));
-				  .tx-@{pos}-@{width}
-					  {text-align: @pos;}
-				  .w((@w - 1));
-			  } .w;
-		  }
-		  .x((@x + 1));
-	  } .x;
+      .v(@v: 1) when (@v <= length(@width-list)) {
+          @pos: e(extract(@pos-list, @v));
+          .u(@u: 1) when (@u <= length(@width-list)) {
+              @width:  e(extract(@width-list, @u));
+             .tx-@{pos}-not-@{width}
+                  {text-align: @pos}
+              .u((@u + 1));
+          } .u;
+          .v((@v + 1));
+      } .v;
+      .x(@x: 1) when (@x <= length(@width-list)) {
+          @width: e(extract(@width-list, @x));
+          @min: e(extract(@min-list, @x));
+          @max: e(extract(@max-list, @x));
+          @media (min-width: ~'@{min}') and (max-width: ~'@{max}'){
+              .z(@z: length(@pos-list)) when (@z > 0) {
+                      @pos:  e(extract(@pos-list, @z));
+                      .tx-@{pos}-not-@{width}
+                          {text-align: inherit;}
+                  .z((@z - 1));
+              } .z;
+
+              .w(@w: length(@pos-list)) when (@w > 0) {
+                  @pos:  e(extract(@pos-list, @w));
+                  .tx-@{pos}-@{width}
+                      {text-align: @pos;}
+                  .w((@w - 1));
+              } .w;
+          }
+          .x((@x + 1));
+      } .x;
 
 
   /***************************************
    * Spacing Builder
    **************************************/
   .j(@j: length(@size-list)) when (@j > 0) {
-	@name:  e(extract(@size-list, @j));
-	@value: e(extract(@pd-list, @j));
-	.pd-v-@{name}{padding-top:~'@{value}px';padding-bottom:~'@{value}px';}
-	.pd-h-@{name}{padding-left:~'@{value}px';padding-right:~'@{value}px';}
-	.pd-l-@{name}{padding-left:~'@{value}px';}
-	.pd-r-@{name}{padding-right:~'@{value}px';}
-	.pd-t-@{name}{padding-top:~'@{value}px';}
-	.pd-b-@{name}{padding-bottom:~'@{value}px';}
-	.pd-@{name}{ border-right-width:~'@{value}px';}
-	.j((@j - 1));
+    @name:  e(extract(@size-list, @j));
+    @value: e(extract(@pd-list, @j));
+    .pd-v-@{name}{padding-top:~'@{value}px';padding-bottom:~'@{value}px';}
+    .pd-h-@{name}{padding-left:~'@{value}px';padding-right:~'@{value}px';}
+    .pd-l-@{name}{padding-left:~'@{value}px';}
+    .pd-r-@{name}{padding-right:~'@{value}px';}
+    .pd-t-@{name}{padding-top:~'@{value}px';}
+    .pd-b-@{name}{padding-bottom:~'@{value}px';}
+    .pd-@{name}{padding:~'@{value}px';}
+    .j((@j - 1));
   } .j;
   .pd-n{padding:0px;}
   .pd-v-n{padding-top:0px; padding-bottom: 0px;}
@@ -169,17 +221,17 @@
   .pd-b-n{padding-bottom:0px;}
 
   .k(@k: length(@size-list)) when (@k > 0) {
-	@name:  e(extract(@size-list, @k));
-	@value: e(extract(@mg-list, @k));
-	.mg-v-@{name}{margin-top:~'@{value}px';margin-bottom:~'@{value}px';}
-	.mg-h-@{name}{margin-left:~'@{value}px';margin-right:~'@{value}px';}
-	.mg-l-@{name}{margin-left:~'@{value}px';}
-	.mg-r-@{name}{margin-right:~'@{value}px';}
-	.mg-t-@{name}{margin-top:~'@{value}px';}
-	.mg-b-@{name}{margin-bottom:~'@{value}px';}
-	.mg-@{name}{ border-right-width:~'@{value}px';}
-	.j((@j - 1));
-  } .j;
+    @name:  e(extract(@size-list, @k));
+    @value: e(extract(@mg-list, @k));
+    .mg-v-@{name}{margin-top:~'@{value}px';margin-bottom:~'@{value}px';}
+    .mg-h-@{name}{margin-left:~'@{value}px';margin-right:~'@{value}px';}
+    .mg-l-@{name}{margin-left:~'@{value}px';}
+    .mg-r-@{name}{margin-right:~'@{value}px';}
+    .mg-t-@{name}{margin-top:~'@{value}px';}
+    .mg-b-@{name}{margin-bottom:~'@{value}px';}
+    .mg-@{name}{margin:~'@{value}px';}
+    .k((@k - 1));
+  } .k;
   .mg-n{margin:0px;}
   .mg-v-n{margin-top:0px; margin-bottom: 0px;}
   .mg-h-n{margin-left:0px;margin-right: 0px;}
@@ -188,15 +240,15 @@
   .mg-t-n{margin-top:0px;}
   .mg-b-n{margin-bottom:0px;}
 
-  	/***************************************
-	* Font Size Builder
-	**************************************/
-	.ftb(@ftb: length(@size-list)) when (@ftb > 0) {
-	  @name:  e(extract(@size-list, @ftb));
-	  @value: e(extract(@ft-list, @ftb));
-	  .ft-size-@{name}{ font-size:~'@{value}px';}
-	  .ftb((@ftb - 1));
-	} .ftb;
+    /***************************************
+    * Font Size Builder
+    **************************************/
+    .ftb(@ftb: length(@size-list)) when (@ftb > 0) {
+      @name:  e(extract(@size-list, @ftb));
+      @value: e(extract(@ft-list, @ftb));
+      .ft-@{name}{ font-size:~'@{value}rem';}
+      .ftb((@ftb - 1));
+    } .ftb;
 
 
 
@@ -205,31 +257,185 @@
    **************************************/
 
   .dtran, .default-transition{
-	transition: 0.15s ease;
+    transition: 0.15s ease;
   }
 
   .row.no-gutters {
-	margin-right: 0;
-	margin-left: 0;
+    margin-right: 0;
+    margin-left: 0;
   }
   .row.no-gutters > [class^="col-"],
   .row.no-gutters > [class*=" col-"] {
-	padding-right: 0;
-	padding-left: 0;
+    padding-right: 0;
+    padding-left: 0;
   }
 
   .headfont{
-	font-family: @headfont;
+    font-family: @headfont;
   }
   .bodyfont{
-	font-family: @bodyfont;
+    font-family: @bodyfont;
   }
   .lightfont{
-	font-weight: 100;
+    font-weight: 100;
   }
   .upperfont{
-	text-transform: uppercase;
+    text-transform: uppercase;
   }
   .heavyfont{
-	font-weight: 700;
+    font-weight: 700;
   }
+
+
+
+.rotate-up {
+
+  /* Safari */
+  -webkit-transform: rotate(-90deg);
+
+  /* Firefox */
+  -moz-transform: rotate(-90deg);
+
+  /* IE */
+  -ms-transform: rotate(-90deg);
+
+  /* Opera */
+  -o-transform: rotate(-90deg);
+
+  /* Internet Explorer */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+}
+.rotate-down{
+
+  /* Safari */
+  -webkit-transform: rotate(90deg);
+
+  /* Firefox */
+  -moz-transform: rotate(90deg);
+
+  /* IE */
+  -ms-transform: rotate(90deg);
+
+  /* Opera */
+  -o-transform: rotate(90deg);
+
+  /* Internet Explorer */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+
+}
+
+/* columns of same height styles */
+
+.row-height {
+  display: table;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%;
+}
+.col-height {
+  display: table-cell;
+  float: none;
+  height: 100%;
+}
+.col-top {
+  vertical-align: top;
+}
+.col-middle {
+  vertical-align: middle;
+}
+.col-bottom {
+  vertical-align: bottom;
+}
+
+@media (min-width: 480px) {
+  .row-xs-height {
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+    width: 100%;
+  }
+  .col-xs-height {
+    display: table-cell;
+    float: none;
+    height: 100%;
+  }
+  .col-xs-top {
+    vertical-align: top;
+  }
+  .col-xs-middle {
+    vertical-align: middle;
+  }
+  .col-xs-bottom {
+    vertical-align: bottom;
+  }
+}
+
+@media (min-width: 768px) {
+  .row-sm-height {
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+    width: 100%;
+  }
+  .col-sm-height {
+    display: table-cell;
+    float: none;
+    height: 100%;
+  }
+  .col-sm-top {
+    vertical-align: top;
+  }
+  .col-sm-middle {
+    vertical-align: middle;
+  }
+  .col-sm-bottom {
+    vertical-align: bottom;
+  }
+}
+
+@media (min-width: 992px) {
+  .row-md-height {
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+    width: 100%;
+  }
+  .col-md-height {
+    display: table-cell;
+    float: none;
+    height: 100%;
+  }
+  .col-md-top {
+    vertical-align: top;
+  }
+  .col-md-middle {
+    vertical-align: middle;
+  }
+  .col-md-bottom {
+    vertical-align: bottom;
+  }
+}
+
+@media (min-width: 1200px) {
+  .row-lg-height {
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+    width: 100%;
+  }
+  .col-lg-height {
+    display: table-cell;
+    float: none;
+    height: 100%;
+  }
+  .col-lg-top {
+    vertical-align: top;
+  }
+  .col-lg-middle {
+    vertical-align: middle;
+  }
+  .col-lg-bottom {
+    vertical-align: bottom;
+  }
+}

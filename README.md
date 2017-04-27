@@ -1,7 +1,5 @@
-# About
-This is a Github pages theme based on Twitter Bootstrap for your Github projects
-# Demo:
-http://robertcedwards.github.io/gh-pages-theme/
+# Demo & Docs
+http://jamesvillarrubia.github.io/classybootstrap/
 
 # License
 This program is free software: you can redistribute it and/or modify
